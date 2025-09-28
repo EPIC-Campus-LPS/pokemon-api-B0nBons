@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk
+# Import needed libraries
 
 class PokemonView(tk.Frame):
     def __init__(self, master):
@@ -12,6 +13,7 @@ class PokemonView(tk.Frame):
         self.image_label = tk.Label(master=master)
         self.image_label.grid(row=1, column=0)
 
+        # Make a frame where the buttons will sit
         self.frame = tk.Frame(master=master)
         self.frame.grid(row=2, column=0, pady=10)
 
@@ -32,6 +34,8 @@ class PokemonView(tk.Frame):
         self.image_label.config(image=self._photo_image)
 
     def set_next_callback(self, callback):
+        # Callbacks are essentially functions that take other functions as arguments then runs it
+        # This was the only way I could figure out how to make the GUI refresh with the new pokemon
         self.next_button.config(command=callback)
 
     def set_prev_callback(self, callback):
